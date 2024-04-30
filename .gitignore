@@ -1,0 +1,12 @@
+*.pyc
+__pycache__/
+log
+log/
+utils/smpl
+utils/smplx
+utils/lpips/weights
+data/zju-mocap/377/cameras.pkl
+data/zju-mocap/377/mesh_infos.pkl
+
+submit_sbatch.sh
+sbatch_gpu.sh
