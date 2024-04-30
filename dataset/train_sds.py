@@ -92,6 +92,10 @@ class Dataset(torch.utils.data.Dataset):
         # a_template_joints = output.joints.detach().cpu().numpy().squeeze()
         # a_template_joints = a_template_joints[:num_joints, :]
 
+        # canonical_joints = a_template_joints
+        # canonical_pose = full_pose
+
+
         return canonical_joints, canonical_bbox, canonical_vertex, canonical_lbs_weights, canonical_edges, canonical_faces, canonical_pose, canonical_beta
 
 
