@@ -72,6 +72,26 @@ class Dataset(torch.utils.data.Dataset):
             
         # save_obj('./canonical_mesh.obj', canonical_vertex, canonical_faces)
 
+        # # for a-pose
+        # import smplx
+        # MODEL_DIR = '../utils/smplx/models'
+        # sex = 'neutral'
+        # smplx_model = smplx.create(MODEL_DIR, model_type='smplx',
+        #                  gender=sex, use_face_contour=False,
+        #                  num_betas=10,
+        #                  ext='npz')
+        # # change a-pose here
+        # a_pose = torch.from_numpy(np.zeros(smplx_model.NUM_BODY_JOINTS * 3, ).astype(np.float32)).unsqueeze(0)
+        # output = smplx_model(betas=torch.from_numpy(canonical_beta).unsqueeze(0), 
+        #                     body_pose=a_pose,
+        #                     return_verts=True,
+        #                     return_full_pose=True)
+        # v = output.vertices.detach().cpu().numpy().squeeze()
+        # full_pose = output.full_pose.detach().cpu().numpy().squeeze()
+        # num_joints = full_pose.reshape(-1, 3).shape[0]
+        # a_template_joints = output.joints.detach().cpu().numpy().squeeze()
+        # a_template_joints = a_template_joints[:num_joints, :]
+
         return canonical_joints, canonical_bbox, canonical_vertex, canonical_lbs_weights, canonical_edges, canonical_faces, canonical_pose, canonical_beta
 
 
